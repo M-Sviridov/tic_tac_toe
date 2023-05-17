@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require './player'
 require './board'
 require './move'
-require 'pry'
 
 board = Board.new
 player1 = Player.new
