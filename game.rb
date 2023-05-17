@@ -7,7 +7,7 @@ board = Board.new
 player1 = Player.new
 player2 = Player.new
 board.print_board
-winner = false
+end_game = false
 turn = 1
 
 def play_turn(player, board)
@@ -22,22 +22,27 @@ def play_turn(player, board)
   end
   board.update_board(player.marker, position - 1)
   board.print_board
-  # binding.pry
 end
 
-until winner == true
+until end_game == true
   if turn.odd?
     play_turn(player1, board)
     if board.winner?
       puts "Congratulations #{player1.name}, you won!"
-      winner = true
+      end_game = true
+    elsif board.draw?
+      puts 'The game is a draw!'
+      end_game = true
     end
     turn += 1
   else
     play_turn(player2, board)
     if board.winner?
       puts "Congratulations #{player2.name}, you won!"
-      winner = true
+      end_game = true
+    elsif board.draw?
+      puts 'The game is a draw!'
+      end_game = true
     end
     turn += 1
   end
