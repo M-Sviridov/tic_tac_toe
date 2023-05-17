@@ -6,7 +6,7 @@ require 'pry'
 board = Board.new
 player1 = Player.new
 player2 = Player.new
-board.print_board
+puts board
 end_game = false
 turn = 1
 
@@ -21,7 +21,7 @@ def play_turn(player, board)
     puts "And you cannot place your marker where the opponent placed it.\n\n"
   end
   board.update_board(player.marker, position - 1)
-  board.print_board
+  puts board
 end
 
 until end_game == true
